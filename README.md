@@ -51,15 +51,15 @@ If you have any query please contact at mosraki@gmail.com
 
 ## Screenshot
 
-![Home Page](/screenshots/1.png)
-![Front Page Category](/screenshots/2.png)
-![Category Posts](/screenshots/3.png)
-![NewsLetter Subscribe](/screenshots/4.png)
-![Blog Footer](/screenshots/5.png)
-![Search Page](/screenshots/6.png)
-![Category Post page](/screenshots/7.png)
-![Single Post Page](/screenshots/8.png)
-![Share Tag Posts](/screenshots/9.png)
-![Comments Section](/screenshots/10.png)
-![admin](/screenshots/11.png)
+![Home Page](/screenshots/1.PNG)
+![Front Page Category](/screenshots/2.PNG)
+![Category Posts](/screenshots/3.PNG)
+![NewsLetter Subscribe](/screenshots/4.PNG)
+![Blog Footer](/screenshots/5.PNG)
+![Search Page](/screenshots/6.PNG)
+![Category Post page](/screenshots/7.PNG)
+![Single Post Page](/screenshots/8.PNG)
+![Share Tag Posts](/screenshots/9.PNG)
+![Comments Section](/screenshots/10.PNG)
+![admin](/screenshots/11.PNG)
 

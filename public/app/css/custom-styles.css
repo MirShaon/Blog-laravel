@@ -1,0 +1,28 @@
+.container-custom{
+      display: table-cell;
+      padding: 0px 73px;
+      height: 80px;
+      vertical-align: middle;
+}
+.container-custom p{
+      display: inline-block;
+}
+.site-custom-logo{
+      height: 60px; 
+      border: 1px solid purple;
+      width: 260px;
+      display: inline-block;
+}
+.site-custom-search{
+      height: 60px; 
+      border: 1px solid purple;
+      width: 260px;
+      display: inline-block;
+}
+#custom-search{
+      width: 700px;
+}
+
+
+
+

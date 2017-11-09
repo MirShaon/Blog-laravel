@@ -59,6 +59,7 @@ If you have any query please contact at mosraki@gmail.com
 ![Search Page](/screenshots/6.png)
 ![Category Post page](/screenshots/7.png)
 ![Single Post Page](/screenshots/8.png)
-![Share,Tag, Posts](/screenshots/9.png)
+![Share Tag Posts](/screenshots/9.png)
 ![Comments Section](/screenshots/10.png)
+![admin](/screenshots/11.png)
 

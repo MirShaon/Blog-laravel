@@ -31,6 +31,11 @@ php artisan migrate
 ```
 
 
+```
+php artisan db:seed
+```
+
+
 At last generate application key, which will be used for password hashing, session and cookie encryption etc.
 ```
 php artisan key:generate
@@ -43,7 +48,14 @@ Run server using this command-
 php artisan serve
 ```
 
+Then go to `http://localhost:8000/admin/dashboard` from your browser and see the app admin.
+
+
+
+
 Then go to `http://localhost:8000` from your browser and see the app.
+
+
 
 ## Ask a question?
 

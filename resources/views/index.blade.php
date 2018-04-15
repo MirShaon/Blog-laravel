@@ -48,14 +48,15 @@
     <div class="header-spacer"></div>
 
     <div class="container">
+        @isset ($posts[0])
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <article class="hentry post post-standard has-post-thumbnail sticky">
                         <div class="post-thumb">
-                            <img src="{{ $first_post->featured }}" alt="{{ $first_post->title }}">
+                            <img src="{{ $posts[0]->featured }}" alt="{{ $posts[0]->title }}">
                             <div class="overlay"></div>
-                            <a href="{{ $first_post->featured }}" class="link-image js-zoom-image">
+                            <a href="{{ $posts[0]->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
                             <a href="#" class="link-post">
@@ -68,7 +69,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title text-center">
-                                        <a href="{{ route('post.single', ['slug' => $first_post->slug ]) }}">{{ $first_post->title }}</a>
+                                        <a href="{{ route('post.single', ['slug' => $posts[0]->slug ]) }}">{{ $posts[0]->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -78,14 +79,14 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $first_post->created_at->toFormattedDateString() }}
+                                                {{ $posts[0]->created_at->toFormattedDateString() }}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $first_post->category->id ]) }}">{{ $first_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $posts[0]->category->id ]) }}">{{ $posts[0]->category->name }}</a>
                                         </span>
 
                                     </div>
@@ -96,15 +97,17 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        @endisset
 
         <div class="row">
+            @isset($posts[1])
             <div class="col-lg-6">
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $second_post->featured }}" alt="seo">
+                            <img src="{{ $posts[1]->featured }}" alt="seo">
                             <div class="overlay"></div>
-                            <a href="{{ $second_post->featured }}" class="link-image js-zoom-image">
+                            <a href="{{ $posts[1]->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
                             <a href="#" class="link-post">
@@ -117,7 +120,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title text-center">
-                                        <a href="{{ route('post.single', ['slug' => $second_post->slug ]) }}">{{ $second_post->title }}</a>
+                                        <a href="{{ route('post.single', ['slug' => $posts[1]->slug ]) }}">{{ $posts[1]->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -127,14 +130,14 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $second_post->created_at->toFormattedDateString() }}
+                                                {{ $posts[1]->created_at->toFormattedDateString() }}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $second_post->category->id ]) }}">{{ $second_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $posts[1]->category->id ]) }}">{{ $posts[1]->category->name }}</a>
                                         </span>
                                     </div>
                             </div>
@@ -142,13 +145,15 @@
 
                 </article>
             </div>
+            @endisset
+            @isset($posts[2])
             <div class="col-lg-6">
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $third_post->featured }}" alt="seo">
+                            <img src="{{ $posts[2]->featured }}" alt="seo">
                             <div class="overlay"></div>
-                            <a href="{{ $third_post->featured }}" class="link-image js-zoom-image">
+                            <a href="{{ $posts[2]->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
                             <a href="#" class="link-post">
@@ -161,7 +166,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title text-center">
-                                        <a href="{{ route('post.single', ['slug' => $third_post->slug ]) }}">{{ $third_post->title }}</a>
+                                        <a href="{{ route('post.single', ['slug' => $posts[2]->slug ]) }}">{{ $posts[2]->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -171,14 +176,14 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $third_post->created_at->toFormattedDateString() }}
+                                                {{ $posts[2]->created_at->toFormattedDateString() }}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $third_post->category->id ]) }}">{{ $third_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $posts[2]->category->id ]) }}">{{ $posts[2]->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -192,14 +197,17 @@
 
                 </article>
             </div>
-        </div><div class="row">
+            @endisset
+        </div>
+        <div class="row">
+            @isset($posts[3])
             <div class="col-lg-6">
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $fourth_post->featured }}" alt="seo">
+                            <img src="{{ $posts[3]->featured }}" alt="seo">
                             <div class="overlay"></div>
-                            <a href="{{ $fourth_post->featured }}" class="link-image js-zoom-image">
+                            <a href="{{ $posts[3]->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
                             <a href="#" class="link-post">
@@ -212,7 +220,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title text-center">
-                                        <a href="{{ route('post.single', ['slug' => $fourth_post->slug ]) }}">{{ $fourth_post->title }}</a>
+                                        <a href="{{ route('post.single', ['slug' => $posts[3]->slug ]) }}">{{ $posts[3]->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -222,14 +230,14 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $fourth_post->created_at->toFormattedDateString() }}
+                                                {{ $posts[3]->created_at->toFormattedDateString() }}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $fourth_post->category->id ]) }}">{{ $fourth_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $posts[3]->category->id ]) }}">{{ $posts[3]->category->name }}</a>
                                         </span>
                                     </div>
                             </div>
@@ -237,13 +245,15 @@
 
                 </article>
             </div>
+            @endisset
+            @isset($posts[4])
             <div class="col-lg-6">
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $fifth_post->featured }}" alt="seo">
+                            <img src="{{ $posts[4]->featured }}" alt="seo">
                             <div class="overlay"></div>
-                            <a href="{{ $fifth_post->featured }}" class="link-image js-zoom-image">
+                            <a href="{{ $posts[4]->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
                             <a href="#" class="link-post">
@@ -256,7 +266,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title text-center">
-                                        <a href="{{ route('post.single', ['slug' => $fifth_post->slug ]) }}">{{ $fifth_post->title }}</a>
+                                        <a href="{{ route('post.single', ['slug' => $posts[4]->slug ]) }}">{{ $posts[4]->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -266,14 +276,14 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $fifth_post->created_at->toFormattedDateString() }}
+                                                {{ $posts[4]->created_at->toFormattedDateString() }}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $fifth_post->category->id ]) }}">{{ $fifth_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['id' => $posts[4]->category->id ]) }}">{{ $posts[4]->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -287,10 +297,12 @@
 
                 </article>
             </div>
+            @endisset
         </div>
     </div>
 
-
+    @isset($categories[0])
+    @isset($categories[1])
     <div class="container-fluid">
         <div class="row medium-padding120 bg-border-color">
             <div class="container">
@@ -299,7 +311,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                             <div class="heading">
-                                <h4 class="h1 heading-title">{{ $tutorials->name }}</h4>
+                                <h4 class="h1 heading-title">{{ $categories[1]->name }}</h4>
                                 <div class="heading-line">
                                     <span class="short-line"></span>
                                     <span class="long-line"></span>
@@ -309,7 +321,7 @@
                     </div>
                     <div class="row">
                         <div class="case-item-wrap">
-                            @foreach($tutorials->posts()->orderBy('created_at', 'desc')->take(-1)->get() as $post)
+                            @foreach($categories[1]->posts()->orderBy('created_at', 'desc')->take(-1)->get() as $post)
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                     <div class="case-item">
                                         <div class="case-item__thumb">
@@ -327,7 +339,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                             <div class="heading">
-                                <h4 class="h1 heading-title">{{ $wordpress->name }}</h4>
+                                <h4 class="h1 heading-title">{{ $categories[0]->name }}</h4>
                                 <div class="heading-line">
                                     <span class="short-line"></span>
                                     <span class="long-line"></span>
@@ -337,7 +349,7 @@
                     </div>
                     <div class="row">
                         <div class="case-item-wrap">
-                            @foreach($wordpress->posts()->orderBy('created_at', 'desc')->take(-1)->get() as $post)
+                            @foreach($categories[0]->posts()->orderBy('created_at', 'desc')->take(-1)->get() as $post)
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                     <div class="case-item">
                                         <div class="case-item__thumb">
@@ -355,6 +367,8 @@
             </div>
         </div>
     </div>
+    @endisset
+    @endisset
 
 
 

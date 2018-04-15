@@ -24,7 +24,7 @@
          <div class="col-md-3">
                 <div class="panel panel-danger">
                     <div class="panel-heading text-center">
-                         Trashed Post:
+                         Trashed Posts:
                     </div>
 
 
@@ -60,7 +60,7 @@
          <div class="col-md-3">
                 <div class="panel panel-success">
                     <div class="panel-heading text-center">
-                         Category:
+                         Categories:
                     </div>
 
 

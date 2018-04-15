@@ -48,7 +48,7 @@ Run server using this command-
 php artisan serve
 ```
 
-Then go to `http://localhost:8000/admin/dashboard` from your browser and see the app admin.
+Then go to `http://localhost:8000/admin/dashboard` from your browser and see the app admin. (<b>Username:</b> admin@gmail.com, <b>Password:</b> password
 
 
 

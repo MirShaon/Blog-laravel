@@ -5,7 +5,7 @@ This is built on Laravel Framework 5.5. This was built for demonstrate purpose.
 
 Clone the repository-
 ```
-https://github.com/MirShaon/Blog-laravel.git
+https://github.com/hpez/Blog-laravel.git
 ```
 
 Then cd into the folder with this command-

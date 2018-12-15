@@ -90,23 +90,23 @@
                              <a href="{{ route('post.create') }}">Create a new post</a>
                          </li>
                          <li class="list-group-item">
-                             <a href="{{ route('category.create') }}">Create a new Category</a>
+                             <a href="{{ route('category.create') }}">Create a new category</a>
                          </li>
                          <li class="list-group-item">
-                             <a href="{{ route('categories') }}">All Category</a>
+                             <a href="{{ route('categories') }}">All categories</a>
                          </li>
                          <li class="list-group-item">
-                             <a href="{{ route('tag.create') }}">Create A New Tag</a>
+                             <a href="{{ route('tag.create') }}">Create a new tag</a>
                          </li>
                          <li class="list-group-item">
-                             <a href="{{ route('tags') }}">All Tags</a>
+                             <a href="{{ route('tags') }}">All tags</a>
                          </li> 
                     
                          <li class="list-group-item">
-                             <a href="{{ route('posts') }}">All Posts</a>
+                             <a href="{{ route('posts') }}">All posts</a>
                          </li>
                         <li class="list-group-item">
-                             <a href="{{ route('posts.trashed') }}">All Trashed Post</a>
+                             <a href="{{ route('posts.trashed') }}">All trashed posts</a>
                          </li>
 
                          @if(Auth::user()->admin)
@@ -114,20 +114,20 @@
                              <a href="{{ route('users') }}">Users</a>
                          </li>
                          <li class="list-group-item">
-                             <a href="{{ route('user.create') }}">Create A New User</a>
+                             <a href="{{ route('user.create') }}">Create a new user</a>
                          </li>
 
                          @endif
 
                           <li class="list-group-item">
-                             <a href="{{ route('user.profile') }}">My Profile</a>
+                             <a href="{{ route('user.profile') }}">My profile</a>
                          </li>
 
 
                          @if(Auth::user()->admin)
 
                           <li class="list-group-item">
-                             <a href="{{ route('settings') }}">Blog Settings</a>
+                             <a href="{{ route('settings') }}">Blog settings</a>
                          </li>
                          @endif
 

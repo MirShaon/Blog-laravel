@@ -41,7 +41,6 @@ class CategoryController extends Controller
 
                 'name' => 'required'
 
-
         ]);
 
         $category = new Category();

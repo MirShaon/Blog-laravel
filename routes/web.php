@@ -66,58 +66,29 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
 
-		Route::get('/dashboard',[
+    Route::get('/dashboard', 'HomeController@index')->name('home');
 
-		 'uses' => 'HomeController@index',
-		  'as' => 'home'
-		]);
+    Route::get('/post/create', 'PostsController@create')->name('post.create');
 
-		Route::get('/post/create',[
+    Route::post('/post/store', 'PostsController@store')->name('post.store');
 
+    Route::get('/posts', 'PostsController@index')->name('posts');
 
-		        'uses' => 'PostsController@create',
-		        'as' => 'post.create'
+    Route::get('/posts/delete/{id}',['uses' => 'PostsController@destroy', 'as' => 'posts.delete']);
 
-		]);
-
-		Route::post('/post/store',[
-
-
-		        'uses' => 'PostsController@store',
-		        'as' => 'post.store'
-
-		]);
-		Route::get('/posts',[
-
-
-		        'uses' => 'PostsController@index',
-		        'as' => 'posts'
-
-		]);
-		Route::get('/posts/delete/{id}',[
-
-
-		        'uses' => 'PostsController@destroy',
-		        'as' => 'posts.delete'
-
-		]);
 		Route::get('/posts/trashed',[
-
-
 				        'uses' => 'PostsController@trashed',
 				        'as' => 'posts.trashed'
 
 		]);
+
 		Route::get('/posts/kill/{id}',[
-
-
 				        'uses' => 'PostsController@kill',
 				        'as' => 'post.kill'
 
 		]);
+
 		Route::get('/posts/restore/{id}',[
-
-
 				        'uses' => 'PostsController@restore',
 				        'as' => 'posts.restore'
 
@@ -183,105 +154,71 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
 		]);
 
 		Route::get('/tags',[
-                          
+
                           'uses' => 'TagsController@index',
                           'as' => 'tags'
 
 		]);
 		Route::get('/tags/create',[
-                          
+
                           'uses' => 'TagsController@create',
                           'as' => 'tag.create'
 
 		]);
 		Route::post('/tags/store',[
-                          
+
                           'uses' => 'TagsController@store',
                           'as' => 'tag.store'
 
 		]);
 		Route::get('/tags/edit/{id}',[
-                          
+
                           'uses' => 'TagsController@edit',
                           'as' => 'tag.edit'
 
 		]);
 		Route::post('/tags/update/{id}',[
-                          
+
                           'uses' => 'TagsController@update',
                           'as' => 'tag.update'
 
 		]);
 		Route::get('/tags/delete/{id}',[
-                          
+
                           'uses' => 'TagsController@destroy',
                           'as' => 'tag.delete'
 
 		]);
-		Route::get('/users', [
 
+    Route::get('/users', 'UsersController@index')->name('users');
 
+    Route::get('/user/create', 'UsersController@create')->name('user.create');
 
-                  'uses' => 'UsersController@index',
-                  'as'   => 'users'
-		]);
-		Route::get('/user/create', [
+    Route::post('/user/store', 'UsersController@store')->name('user.store');
 
+    Route::get('/user/admin/{id}', ['uses' => 'UsersController@admin', 'as'   => 'user.admin']);
 
+    Route::get('/user/not-admin/{id}', ['uses' => 'UsersController@not_admin', 'as'   => 'user.not_admin']);
 
-		                  'uses' => 'UsersController@create',
-		                  'as'   => 'user.create'
-		]);
-		Route::post('/user/store', [
-
-
-
-		                  'uses' => 'UsersController@store',
-		                  'as'   => 'user.store'
-		]);
-		Route::get('/user/admin/{id}', [
-
-
-
-		                  'uses' => 'UsersController@admin',
-		                  'as'   => 'user.admin'
-		]);
-
-		Route::get('/user/not-admin/{id}', [
-
-
-
-		                  'uses' => 'UsersController@not_admin',
-		                  'as'   => 'user.not_admin'
-		]);
        Route::get('/user/profile', [
-
-
-
 		                  'uses' => 'ProfilesController@index',
 		                  'as'   => 'user.profile'
 		]);
+
 		 Route::post('/user/profile/update', [
-
-
-
 		                  'uses' => 'ProfilesController@update',
 		                  'as'   => 'user.profile.update'
 		]);
+
 		 Route::get('/user/delete/{id}', [
-
-
-
 		                  'uses' => 'UsersController@destroy',
 		                  'as'   => 'user.delete'
 		]);
 		 Route::get('/settings', [
-
-
-
 		                  'uses' => 'SettingsController@index',
 		                  'as'   => 'settings'
 		]);
+
 		 Route::post('/settings/update', [
 
 
@@ -291,6 +228,6 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
 		]);
 
 
-    
+
 });
 

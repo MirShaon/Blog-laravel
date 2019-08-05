@@ -9,38 +9,65 @@ class Post extends Model
 {
     use SoftDeletes;
    
-       protected $fillable =[
-
-    	             'title','body','category_id','featured','slug','user_id'
-
-
-                   ];
-
-    public function getFeaturedAttribute($featured)
-    {
-
-          return asset($featured);
-    }
+    protected $fillable =[
+        'title',
+        'body',
+        'category_id',
+        'featured',
+        'slug',
+        'user_id'
+    ];
 
     protected $dates = ['deleted_at'];
 
+    /*
+    |--------------------------------------------------------------------------
+    | Eloquent Accessors and Mutators
+    |--------------------------------------------------------------------------
+    */
 
+    /**
+     * @param  $featured
+     * @return string
+     */
+    public function getFeaturedAttribute($featured)
+    {
+        return asset($featured);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Eloquent Relationships
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * Define an inverse one-to-one relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
-
-       return $this->belongsTo('App\Category');
-
+       return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Define an inverse one-to-many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function tags()
     {
-
-      return $this->belongsToMany('App\Tag');
+      return $this->belongsToMany(Tag::class);
     }
- public function user()
- {
-  return $this->belongsTo('App\User');
- }
 
-
-
+    /**
+     * Define an inverse one-to-one relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+     public function user()
+     {
+         return $this->belongsTo(User::class);
+     }
 }

@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -28,11 +27,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function profile(){
+    /*
+    |--------------------------------------------------------------------------
+    | Eloquent Relationships
+    |--------------------------------------------------------------------------
+    */
 
-        return $this->hasOne('App\Profile');
+    /**
+     * Define an one-to-many or many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile() {
+        return $this->hasOne(Profile::class);
     }
-    public function posts(){
-        return $this->hasMany('App\Post');
+
+    /**
+     * Define many-to-many or many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts() {
+        return $this->hasMany(Post::class);
     }
 }

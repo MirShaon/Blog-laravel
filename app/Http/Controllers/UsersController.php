@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Session;
 use App\User;
 use App\Profile;
-
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * UsersController constructor.
      */
-
     public function __construct()
     {
-   
        $this->middleware('admin');
-
-
     }
 
+    /**
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.users.index')->with('users', User::all());
@@ -32,7 +28,7 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -43,38 +39,24 @@ class UsersController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-         $this->validate($request,[
-
-                'name' => 'required',
-                'email' => 'required|email'
-
-
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt('password')
         ]);
 
-          $user = User::create([
+        Profile::create([
+            'user_id' => $user->id,
+            'avatar' => 'uploads/avatars/1.png',
+        ]);
 
-             'name' => $request->name,
-             'email' => $request->email,
-             'password' => bcrypt('password')
+        session()->flash('success','Users Created Succesfully!');
 
-          ]);
-
-          $profile = Profile::create([
-
-           'user_id' => $user->id,
-           'avatar' => 'uploads/avatars/1.png',
-
-
-
-          ]);
-
-          Session::flash('success','Users Created Succesfully!');
-
-          return redirect()->route('users');
+        return redirect()->route('users');
     }
 
     /**
@@ -115,52 +97,38 @@ class UsersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-         $user = User::find($id);
-
+        $user = User::find($id);
         $user->profile->delete();
-
         $user->delete();
 
-        Session::flash('success', 'User deleted.');
+        session()->flash('success', 'User deleted.');
 
         return redirect()->back();
     }
 
-
     public function admin($id)
     {
-
         $user = User::find($id);
-
         $user->admin = 1;
-
         $user->save();
 
-        Session::flash('success', 'You make addmin successfully!');
+        session()->flash('success', 'You make admin successfully!');
 
         return redirect()->back();
+    }
 
-     
-
-    } 
      public function not_admin($id)
     {
-
         $user = User::find($id);
-
         $user->admin = 0;
-
         $user->save();
 
-        Session::flash('success', 'You make admin successfully!');
+        session()->flash('success', 'You make admin successfully!');
 
         return redirect()->back();
-
-     
-
     }
 }

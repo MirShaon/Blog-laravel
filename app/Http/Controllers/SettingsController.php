@@ -1,29 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Session;
 use App\Setting;
-
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * SettingsController constructor.
      */
-
     public function __construct()
     {
-   
        $this->middleware('admin');
-
-
     }
+
     public function index()
     {
-        return view('admin.settings.settings')->with('settings',Setting::first());
+        return view('admin.settings.settings')->with('settings', Setting::first());
     }
 
     /**
